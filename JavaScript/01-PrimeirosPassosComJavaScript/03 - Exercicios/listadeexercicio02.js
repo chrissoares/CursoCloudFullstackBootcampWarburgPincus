@@ -23,8 +23,7 @@ const nomeAdulto = 'Christiano'
 const pesoAdulto = 100;
 const alturaAdulto = 1.82;
 
-let  imcAdulto = pesoAdulto / (alturaAdulto * alturaAdulto);
-imcAdulto = pesoAdulto / Math.pow(alturaAdulto, 2);
+let imcAdulto = pesoAdulto / Math.pow(alturaAdulto, 2);
 
 let condicaoAdulto = '';
 
