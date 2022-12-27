@@ -1,42 +1,39 @@
-const offset = 0;
-const limit = 10;
-const URL =`https://pokeapi.co/api/v2/pokemon?offset=${offset}&limit=${limit}`;
+function convertPokemonTypesToLi(pokemonType) {
+    return pokemonType.map((type) => `<li class="type">${type}</li>`);
+}
 
-//O fetch retorna uma promisses.
-//o then  que vai ser chamado quando a promisse for entregue.
-//o catch é chamado quando ocorre um problema com a requisição.
-//o finally sempre é chamado ao final.
+function convertPokemonToLi(pokemon) {
+    return `
+        <li class="pokemon ${pokemon.type}">
+            <span class="number">#${pokemon.number}</span>
+            <span class="name">${pokemon.name}</span>
+            <div class="detail">
+                <ol class="types">
+                    ${pokemon.types.map((type) => `<li class="type ${type}">${type}</li>`).join('')}
+                </ol>
+                <img src="${pokemon.photo}" alt="${pokemon.name}">
+            </div>
+        </li>
+    `
+}
 
-fetch(URL)
-    //o response tem uma propriedade json que é uma promisse, então possui toda sua extrutura
-    /*.then(function (response){
-        response.json().then(function(responseBody){
-            console.log(responseBody)
-        });
-        console.log(response)
-    })*/
-    //Desta Outra forma, o primeiro then retorna uma promisse para o segundo then;
-    //Os thens podem ser encadeados desta mandeira, evitando ter que ser usado callback dentro de callback.
-    /*.then(function(response){
-        return response.json();
-    })
-    .then(function(jsonBody){
-        console.log(jsonBody);
-    })
-    .catch(function (error){
-        console.log(error)
-    })
-    .finally(function(){
-        console.log('Requisição concluída')
-    });*/
-    //Outra forma é reduzindo a função atraves de arrow funciont.
-    //Quando uma arrow function possui apenas uma linha, não é necessário abrir
-    //o seu corpo com as chaves { }
-    .then((response) => response.json())
-    .then((jsonBody) => console.log(jsonBody))
-    .catch((error) => console.log(error))
-    .finally(() => console.log('Requisição concluída'));
+const pokemonList = document.getElementById('pokemonList')
 
 
-console.log(10+10);
+pokeApi.getPokemons().then((pokemons = []) => {
 
+    // Primeira forma de usar o MAP, mais didadica
+    // const newList = pokemons.map((pokemon) => {
+    //     return convertPokemonToLi(pokemon);
+    // })
+
+    // const newHtml = newList.join('');
+
+    // pokemonList.innerHTML += newHtml;
+
+    //Outra forma de usar o MAP, para este caso. 
+    //Como o MAP recebe chama uma funcao passando como parâmetros
+    // Valor, Index e Array, pode referenciar a função diretamente, que ela 
+    //será chamada pelo MAP e receberá o valor que é o pokemon.
+    pokemonList.innerHTML = pokemons.map(convertPokemonToLi).join('');
+})
