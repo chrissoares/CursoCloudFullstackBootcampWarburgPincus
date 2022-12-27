@@ -21,7 +21,7 @@ pokeApi.getPokemonDetail = (pokemon) =>{
 }
 
 
-pokeApi.getPokemons = (offset = 0, limit = 5) => {
+pokeApi.getPokemons = (offset = 0, limit = 12) => {
     const URL =`https://pokeapi.co/api/v2/pokemon?offset=${offset}&limit=${limit}`;
 
 //O fetch retorna uma promisses.
