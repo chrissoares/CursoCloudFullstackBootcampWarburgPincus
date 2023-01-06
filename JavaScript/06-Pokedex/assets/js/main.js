@@ -21,16 +21,18 @@ function loadPokemonItens(offset, limit) {
         // Valor, Index e Array, pode referenciar a função diretamente, que ela 
         //será chamada pelo MAP e receberá o valor que é o pokemon.
         pokemonList.innerHTML += pokemons.map((pokemon) => `
-                <li class="pokemon ${pokemon.type}">
-                    <span class="number">#${pokemon.number}</span>
-                    <span class="name">${pokemon.name}</span>
-                    <div class="detail">
-                        <ol class="types">
-                            ${pokemon.types.map((type) => `<li class="type ${type}">${type}</li>`).join('')}
-                        </ol>
-                        <img src="${pokemon.photo}" alt="${pokemon.name}">
-                    </div>
-                </li>
+                <a href="pokemon.html?id=${pokemon.number}">
+                    <li class="pokemon ${pokemon.type}">
+                        <span class="number">#${pokemon.number}</span>
+                        <span class="name">${pokemon.name}</span>
+                        <div class="detail">
+                            <ol class="types">
+                                ${pokemon.types.map((type) => `<li class="type ${type}">${type}</li>`).join('')}
+                            </ol>
+                            <img src="${pokemon.photo}" alt="${pokemon.name}">
+                        </div>
+                    </li>
+                </a>
             `).join('');
     });
 }

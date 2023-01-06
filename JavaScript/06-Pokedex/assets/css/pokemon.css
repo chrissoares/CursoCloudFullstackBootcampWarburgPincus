@@ -21,7 +21,7 @@ h2{
 }
 
 .pokemonContent{
-    background-color: burlywood;
+    color: #fff;
 }
 
 .pokemon h1 {
@@ -42,6 +42,10 @@ h2{
     justify-content: space-between;
 }
 
+.pokemon .name {
+    text-transform: capitalize;
+}
+
 .pokemon .types {
     padding: 0;
     margin-bottom: 1rem;
@@ -58,8 +62,6 @@ h2{
     filter: brightness(1.1);
     text-align: center;
     margin: 0 .1rem;
-
-    background-color: #009270;
 }
 
 .pokemon .image {
