@@ -2,3 +2,43 @@
 <p *ngIf="">card works!</p>
 <button (click)="ShowMsg()">Olá Margareth</button>
 <p *ngIf="isShowMsg">Noitada, amor e vinho!</p>
+
+<ul>
+  <li
+    *ngFor="let p of produtos; let i = index"
+    (click)="remover(i)"
+  >
+    {{i}} - {{p}}
+  </li>
+  <button (click)="adicionar()">Adicionar</button>
+</ul>
+
+<div [ngSwitch]="menuType">
+  <div *ngSwitchDefault>
+    <ul>
+      <li>Fazer Login</li>
+      <li>Criar conta</li>
+    </ul>
+  </div>
+  <div *ngSwitchCase="'user'">
+    <ul>
+      <li>Editar Perfil</li>
+      <li>Adicionar Cartão</li>
+    </ul>
+  </div>
+  <div *ngSwitchCase="'admin'">
+    <ul>
+      <li>Editar Perfil</li>
+      <li>Adicionar Cartão</li>
+      <li>Gerenciar Usuários</li>
+    </ul>
+  </div>
+  <div *ngSwitchCase="'superuser'">
+    <ul>
+      <li>Editar Perfil</li>
+      <li>Adicionar Cartão</li>
+      <li>Gerenciar Usuários</li>
+      <li>Gerenciar Admins</li>
+    </ul>
+  </div>
+</div>

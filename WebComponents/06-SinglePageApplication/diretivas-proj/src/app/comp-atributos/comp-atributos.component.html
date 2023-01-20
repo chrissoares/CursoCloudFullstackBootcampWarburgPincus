@@ -1,0 +1,32 @@
+<p [ngClass]="estilo">comp-atributos works!</p>
+
+<button (click)="trocar()">Trocar</button>
+<h1 [ngStyle]="{'background': corFundo, 'color': corTexto}">Curso Angula</h1>
+
+<!--Primeira forma ngContent, traz tudo-->
+<ng-content></ng-content>
+<hr>
+
+<h1>Lista de Compras</h1>
+<p>Adicione um Item</p>
+<input type="text" [(ngModel)]="item" />
+<button (click)="adicionarLista()">Adicionar</button>
+<h2>Lista Atual:</h2>
+<ul>
+  <li *ngFor="let p of lista">{{p}}</li>
+</ul>
+
+<hr>
+<ng-template [ngIf]="isEnableBlock">
+  <a href="#">Finalizar Compra</a>
+  <br>
+</ng-template>
+<ng-template [ngIf]="isEnableBlock">
+  <a href="#">Adiconar ao Carrinho</a>
+  <br>
+</ng-template>
+<hr>
+
+<!--Segunda forma ngContent, traz parte-->
+<!-- Se parte for traga, ela saira de qualquer outro ngContent que estiver com ela -->
+<ng-content select="p" ></ng-content>
