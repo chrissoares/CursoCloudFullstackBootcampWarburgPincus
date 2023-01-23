@@ -23,8 +23,15 @@
   margin: 0 auto;
   width: 90%;
   height: 70%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
+.card__body > img{
+  width: 100%;
+  height: auto;
+}
 .card__stats{
   padding-top: 10px;
   display: flex;
