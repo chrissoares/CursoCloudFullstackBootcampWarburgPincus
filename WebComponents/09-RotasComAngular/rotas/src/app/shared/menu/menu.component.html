@@ -1,0 +1,22 @@
+<div>
+  <ul>
+    <li>
+      <!-- routerLinkActiveOptions serve para definir se apenas o link exato será aplicado os estilos -->
+      <a
+        [routerLink]="['/']"
+        [routerLinkActive]="['activated']"
+        [routerLinkActiveOptions]="{exact: true}"
+      >
+        Home
+      </a>
+    </li>
+    <li>
+      <a
+        [routerLink]="['portfolio']"
+        [routerLinkActive]="['activated']"
+      >
+        Portifolio
+      </a>
+    </li>
+  </ul>
+</div>
